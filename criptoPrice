@@ -1,0 +1,16 @@
+#!/bin/sh
+
+COINS="BTC ADA DOGE"
+CURRENCY="BRL"
+
+for coin in $COINS; do
+    curl -s "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=$coin&tsyms=$CURRENCY&e=CCCAGG" |
+    jq --raw-output "
+        \"The current stats of $coin is (in $CURRENCY):\",
+        .DISPLAY.\"$coin\".\"$CURRENCY\".PRICE + \"    Price\",
+        .DISPLAY.\"$coin\".\"$CURRENCY\".CHANGEPCTDAY + \"%     Daily change\",
+        .DISPLAY.\"$coin\".\"$CURRENCY\".CHANGEDAY + \"     Daily change\",
+        .DISPLAY.\"$coin\".\"$CURRENCY\".HIGHDAY + \"    24h High\",
+        .DISPLAY.\"$coin\".\"$CURRENCY\".LOWDAY + \"    24h Low\",
+        .DISPLAY.\"$coin\".\"$CURRENCY\".MKTCAP + \"    Market Cap\""
+done
