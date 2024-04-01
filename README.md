@@ -10,7 +10,7 @@ Watch Mashed [video](https://youtu.be/PcrhBHvcouo) on this
 
 ### Install 
 ```
-curl -s "https://raw.githubusercontent.com/rabpaulo/CriptoPriceInTerminal/main/criptoPrice" > ~/.local/bin/criptoPrice
+curl -s "https://raw.githubusercontent.com/rabpaulo/AnyCriptoPriceInTerminal/main/criptoPrice" > ~/.local/bin/criptoPrice
 sudo chmod +x ~/.local/bin/criptoPrice
 ```
 
